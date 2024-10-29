@@ -18,6 +18,10 @@ public class SkipItem implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
         if (sender instanceof Player player) {
+            if (!instance.getRandomItem().isPlayerAllowed(player)) {
+                player.sendMessage(FindAllItems.PREFIX + instance.getConfig().get("locales.not-allowed").toString().replace('&', '§'));
+                return true;
+            }
             if (player.hasPermission("findallitems.commands.skipitem")) {
                 for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
                     String message = instance.getConfig().get("locales.skip-item").toString().replace('&', '§').replace("%player%", player.getName()).replace("%name%", instance.getRandomItem().getItemName(instance.getRandomItem().material));
@@ -25,7 +29,7 @@ public class SkipItem implements CommandExecutor {
                 }
                 instance.getRandomItem().getItem();
             } else {
-                player.sendMessage("§4Du hast keine Rechte.");
+                player.sendMessage(instance.getConfig().get("locales.no-permission").toString().replace('&', '§').replace("%permission%", "findallitems.commands.skipitem"));
             }
         }
         return false;

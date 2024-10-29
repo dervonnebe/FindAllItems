@@ -1,6 +1,15 @@
 currentitem: 1
+player: # Dieses Attribut wird von der Challenge genutzt, um das game nur für einzelne Spieler zu aktivieren.
+  enabled: true
+  player:
+    - 'Mirow'
+    - 'MysticJack'
 locales:
   prefix: '&8| &f&lFindAllItems &8» &7'
+  no-permission: '&7Du hast keine Berechtigung, diesen Befehl auszuführen. &8(&f%permission%&8)'
+  #no-permission: '&7You do not have permission to execute this command.'
+  no-access: '&7Du bist für diese Challenge nicht aktiviert.'
+  #no-access: '&7You are not enabled for this challenge.'
   item-registered: '&7Das Folgende Item wurde registriert: &f%item_found% &7es fehlen noch &f%remaining_items% &7Items.'
   #item-registered: '&7The following item got found: &f%item_found% &7there are &f%remaining_items% &7remaining items..'
   all-items-found: 'Alle Items wurden gefunden, ihr habt die Challenge erfolgreich geschafft.'

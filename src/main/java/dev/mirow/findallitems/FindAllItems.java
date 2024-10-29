@@ -23,6 +23,8 @@ public final class FindAllItems extends JavaPlugin {
     public static String PREFIX = "LOADING";
     @Override
     public void onEnable() {
+        long now = System.currentTimeMillis();
+        getLogger().info("Starting FindAllItems...");
         instance = this;
         instance.saveResource("config.yml", false);
         instance.getConfig().options().copyDefaults(true);
@@ -38,13 +40,12 @@ public final class FindAllItems extends JavaPlugin {
 
         bossBarUtils.createBossBar();
 
-
-
         new JoinListener(this);
         new QuitListener(this);
 
         new SkipItem(this);
 
+        getLogger().info("FindAllItems started in " + (System.currentTimeMillis() - now) + "ms");
     }
 
     @Override

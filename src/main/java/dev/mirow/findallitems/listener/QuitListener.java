@@ -23,6 +23,5 @@ public class QuitListener implements Listener {
 
         String message = instance.getConfig().get("locales.quit-message").toString().replace('&', '§').replace("%player%", player.getName());
         event.setQuitMessage(FindAllItems.PREFIX + message);
-
     }
 }
